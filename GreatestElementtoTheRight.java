@@ -26,9 +26,31 @@ class GreatestElementToTheRight{
                 int max = 0;     //Create a helper variable to keep track of the largest int to the right.
 
                 //Now I need to loop through the input array backwards.
-                for(int i = (arr.length-1), i >= 0; i--){
+                for(int i = (arr.length-1); i >= 0; i--){
+                        
+                        //Need to check if I am at the last index, which is what I start at.
+                        if(i == (arr.length-1)){
+                                max = arr[i];       //Set the max to the first index I come across.
+                                arr[i] = -1;        //Update the last index to -1.
+                        }
+                        else if(i == (arr.length-2) && arr[i] > max){
+                                //If I fall in here, keep the current value at the index, but update max.
+                                max = arr[i];
+                        }
+                        else if(arr[i] > max){
+                                //If I fall in here, there are a few things I need to do.
+                                int tmpVar = arr[i];    //Save the current value of arr[i].
+                                arr[i] = max;           //Update arr[i] to the max.
+                                max = tmpVar;           //Update the max variable.
 
+                        }
+                        else{
+                                //If I fall in here, just update the current value with the max to the right.
+                                arr[i] = max;
+                        }
                 }
+
+                return arr;     //Once I am done looping through the array, return the same array that was passed in/updated.
         }
 
         //Here is my main method that I will use for testing.

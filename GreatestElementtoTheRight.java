@@ -32,11 +32,7 @@ class GreatestElementToTheRight{
                         if(i == (arr.length-1)){
                                 max = arr[i];       //Set the max to the first index I come across.
                                 arr[i] = -1;        //Update the last index to -1.
-                        }
-                        else if(i == (arr.length-2) && arr[i] > max){
-                                //If I fall in here, keep the current value at the index, but update max.
-                                max = arr[i];
-                        }
+                        } 
                         else if(arr[i] > max){
                                 //If I fall in here, there are a few things I need to do.
                                 int tmpVar = arr[i];    //Save the current value of arr[i].
@@ -55,6 +51,18 @@ class GreatestElementToTheRight{
 
         //Here is my main method that I will use for testing.
         public static void main(String[] args){
-                System.out.println("Hello World");
+                
+                //Need to create an instance of the class for testing.
+                GreatestElementToTheRight tmpObj = new GreatestElementToTheRight();
+
+                //Now I need to create some test data
+                int[] tmpArr = {17, 18, 5, 4, 6, 1};
+
+                tmpObj.replaceElements(tmpArr);  //Call my function on the test array
+
+                //Now I need to print out my test array after passing it to replaceElements()
+                for(int i: tmpArr){
+                        System.out.println(i);
+                }
         }
 }
